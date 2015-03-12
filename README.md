@@ -10,8 +10,8 @@ Explorations of working with Audio within Framer. The HTML5 DOM includes many me
 ---
 
 #### Examples
-###### » [Basic AudioPlayer Example (without Class)](http://share.framerjs.com/h1vucporwyxs/)
-###### » [AudioPlayer Class](http://share.framerjs.com/go3wrgbprhax/) 
+###### » [Basic AudioPlayer Example](http://share.framerjs.com/mz633vr9l57p/)
+###### » [AudioPlayer Class](http://share.framerjs.com/pb8ugy1rfbwt/) 
 
 ![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
 
