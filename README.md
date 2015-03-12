@@ -21,7 +21,7 @@ audio.player.play()
 ```
 #### Progress
 
-The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is **baseProgressOn(layer)**, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
+The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is `baseProgressOn(layer)`, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
 
 ```javascript
 progress = new Layer 
@@ -34,7 +34,7 @@ audio.player.ontimeupdate = ->
 ```
 
 #### Time
-It also includes two functions that automatically format time for you in a **minutes:seconds** format. Both a **getTime()** and **getTimeLeft** function.
+It also includes two functions that automatically format time for you in a **minutes:seconds** format. Both a `getTime()` and `getTimeLeft()` function.
 
 ```javascript
 audio.player.ontimeupdate = ->
@@ -45,6 +45,17 @@ audio.player.ontimeupdate = ->
 ![AudioPlayer TimeLeft Preview](http://cl.ly/aB3v/getTimeLeft.png)
 
 #### Progress Bar Interaction / Scrubbing
+
+Similar to how scrubbers work on iOS, we want to allow people to drag beyond the progressBar, as long as you started by clicking within the progressBar. We also check if the audio was playing on click, so we can pause it during scrub-movement for smoother scrubbing.
+
+```javascript
+progressBar.on Events.TouchStart, (event) ->
+	mousedown = true
+	if audio.isPlaying() then wasPlaying = true
+```
+
+While dragging/scrubbing, update the currentTime of the track, which will automatically be correctly visualized since our `baseProgressOn(layer)` function is based on the currentTime.
+
 ```javascript
 Events.wrap(document).addEventListener Events.TouchMove, (event) ->
 	offsetX = (event.x - progressBar.x)
@@ -52,7 +63,11 @@ Events.wrap(document).addEventListener Events.TouchMove, (event) ->
 	if mousedown is true and offsetX >= 0 and offsetX <= 200
 		audio.player.pause()
 		audio.player.currentTime = audio.player.duration * (offsetX / 200)
+```
 
+Finally, we listen to `TouchEnd` events and update the time + allow for clicks to set the time. If it was already playing, and you click somewhere within the progressBar, we want the track to keep on playing.
+
+```javascript
 Events.wrap(document).addEventListener Events.TouchEnd, (event) -> 
 	if mousedown is true
 		audio.player.currentTime = audio.player.duration * (offsetX / 200)
@@ -63,3 +78,8 @@ Events.wrap(document).addEventListener Events.TouchEnd, (event) ->
 
 	mousedown = false
 ```
+
+#### To-do:
+- Look into implementing a default play/pause/stop buttons within the Class.
+- Rapid scrubs can off-set the time currently.
+- Implement fastForward and rewind behavior.
