@@ -30,7 +30,6 @@ progress = new Layer
   superLayer: progressBar
 
 audio.player.ontimeupdate = ->
-	# Calculate current width
 	progress.width = audio.player.baseProgressOn(progressBar)
 ```
 
