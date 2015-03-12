@@ -8,8 +8,8 @@ Explorations of working with Audio within Framer. The HTML5 DOM includes many me
 - Implementing basic play/pause/stop behaviors
 
 #### Examples
-###### - [Basic AudioPlayer Example (without Class)](http://share.framerjs.com/h1vucporwyxs/)
-###### - [AudioPlayer Class](http://share.framerjs.com/go3wrgbprhax/)
+###### - [Basic AudioPlayer Example (without Class)](http://share.framerjs.com/h1vucporwyxs/) http://share.framerjs.com/h1vucporwyxs/
+###### - [AudioPlayer Class](http://share.framerjs.com/go3wrgbprhax/) http://share.framerjs.com/go3wrgbprhax/
 
 ![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
 
@@ -24,13 +24,11 @@ audio.player.play()
 The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is **baseProgressOn(layer)**, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
 
 ```javascript
-# Visualize Progress 
 progress = new Layer 
   width: 0, height:6,
   backgroundColor: "#333", borderRadius: 40, 
   superLayer: progressBar
 
-# Update Progress
 audio.player.ontimeupdate = ->
 	# Calculate current width
 	progress.width = audio.player.baseProgressOn(progressBar)
@@ -49,7 +47,6 @@ audio.player.ontimeupdate = ->
 
 #### Progress Bar Interaction / Scrubbing
 ```javascript
-# Add eventListeners to the document to allow scrubbing outside of the progressBar
 Events.wrap(document).addEventListener Events.TouchMove, (event) ->
 	offsetX = (event.x - progressBar.x)
 	
