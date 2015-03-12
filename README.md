@@ -87,3 +87,6 @@ Events.wrap(document).addEventListener Events.TouchEnd, (event) ->
 - Look into implementing a default play/pause/stop buttons within the Class.
 - Rapid scrubs can off-set the time currently.
 - Implement fastForward and rewind behavior.
+---
+
+Reference: http://www.w3schools.com/tags/ref_av_dom.asp
