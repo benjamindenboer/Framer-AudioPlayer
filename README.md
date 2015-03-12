@@ -21,7 +21,7 @@ audio.player.play()
 ```
 #### Progress
 
-The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is *baseProgressOn(layer)*, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
+The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is **baseProgressOn(layer)**, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
 
 ```javascript
 # Visualize Progress 
@@ -37,7 +37,7 @@ audio.player.ontimeupdate = ->
 ```
 
 #### Time
-It also includes two functions that automatically format time for you in a *minutes:seconds* format. Both a *getTime()* and *getTimeLeft* function.
+It also includes two functions that automatically format time for you in a **minutes:seconds** format. Both a **getTime()** and **getTimeLeft** function.
 
 ```javascript
 audio.player.ontimeupdate = ->
