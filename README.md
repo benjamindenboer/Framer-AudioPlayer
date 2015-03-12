@@ -38,7 +38,7 @@ It also includes two functions that automatically format time for you in a **min
 
 ```javascript
 audio.player.ontimeupdate = ->
-  showTime.html = audio.player.getTime()
+	showTime.html = audio.player.getTime()
 	timeLeft.html = "-" + audio.player.getTimeLeft()
 ```
 
