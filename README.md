@@ -8,8 +8,10 @@ Explorations of working with Audio within Framer. The HTML5 DOM includes many me
 - Implementing basic play/pause/stop behaviors
 
 #### Examples
-###### - [Basic AudioPlayer Example (without Class)](http://share.framerjs.com/h1vucporwyxs/) http://share.framerjs.com/h1vucporwyxs/
-###### - [AudioPlayer Class](http://share.framerjs.com/go3wrgbprhax/) http://share.framerjs.com/go3wrgbprhax/
+###### - [Basic AudioPlayer Example (without Class)](http://share.framerjs.com/h1vucporwyxs/)
+http://share.framerjs.com/h1vucporwyxs/
+###### - [AudioPlayer Class](http://share.framerjs.com/go3wrgbprhax/) 
+http://share.framerjs.com/go3wrgbprhax/
 
 ![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
 
