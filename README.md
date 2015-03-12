@@ -7,6 +7,8 @@ Explorations of working with Audio within Framer. The HTML5 DOM includes many me
 - Properly formatting and getting the timeLeft
 - Implementing basic play/pause/stop behaviors
 
+---
+
 #### Examples
 ###### » [Basic AudioPlayer Example (without Class)](http://share.framerjs.com/h1vucporwyxs/)
 ###### » [AudioPlayer Class](http://share.framerjs.com/go3wrgbprhax/) 
@@ -44,6 +46,8 @@ audio.player.ontimeupdate = ->
 
 ![AudioPlayer TimeLeft Preview](http://cl.ly/aB3v/getTimeLeft.png)
 
+---
+
 #### Progress Bar Interaction / Scrubbing
 
 Similar to how scrubbers work on iOS, we want to allow people to drag beyond the progressBar, as long as you started by clicking within the progressBar. We also check if the audio was playing on click, so we can pause it during scrub-movement for smoother scrubbing.
@@ -78,7 +82,7 @@ Events.wrap(document).addEventListener Events.TouchEnd, (event) ->
 
 	mousedown = false
 ```
-
+---
 #### To-do:
 - Look into implementing a default play/pause/stop buttons within the Class.
 - Rapid scrubs can off-set the time currently.
