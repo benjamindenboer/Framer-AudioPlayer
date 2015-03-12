@@ -15,7 +15,7 @@ Explorations of working with Audio within Framer. The HTML5 DOM includes many me
 
 ![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
 
-#### AudioPlayer Class
+### AudioPlayer Class
 
 ```javascript
 audio = new AudioPlayer audio: "audio.mp3"
