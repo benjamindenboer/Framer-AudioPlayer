@@ -28,7 +28,7 @@ To target & customize the fill:
 ```javascript
 audio.progressFill.backgroundColor = "transparent"
 ```
-
+---
 
 ##### Volume Bar
 Set `showVolume` to true. 
@@ -40,6 +40,8 @@ To target & customize the fill:
 ```javascript
 audio.volumeFill.backgroundColor = "#000"
 ```
+
+---
 
 ##### Time
 Set `showTime` to true. 
