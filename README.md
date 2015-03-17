@@ -6,6 +6,9 @@ AudioPlayer Class for Framer.
 ###### 2. [AudioPlayer Class](http://share.framerjs.com/bplu2b1se9bv/) 
 ###### 3. [AudioPlayer Module (iOS Example)](http://share.framerjs.com/z7b91klf85q2/) 
 
+![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
+---
+
 ### AudioPlayer Class
 
 ```javascript
@@ -71,7 +74,6 @@ audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
 ```
 
 ![AudioPlayerModule Preview](http://cl.ly/aEth/Bitmap.png)
-![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
 
 ---
 #### To-do (ideas):
