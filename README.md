@@ -71,7 +71,7 @@ audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
 ```
 
 ![AudioPlayerModule Preview](http://cl.ly/aEth/Bitmap.png)
-
+![AudioPlayer Preview](http://cl.ly/aBUw/preview.png)
 
 ---
 #### To-do (ideas):
