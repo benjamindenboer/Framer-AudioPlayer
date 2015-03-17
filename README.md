@@ -26,7 +26,7 @@ audio.progressBar.properties =
 	backgroundColor: "e7e7e7"
 ```
 
-To target & customize the fill:
+The height of the progressFill is automatically set to equal the height of the progressBar. To customize the fill:
 ```javascript
 audio.progressFill.backgroundColor = "transparent"
 ```
@@ -38,7 +38,7 @@ Set `showVolume` to true.
 audio.showVolume = true
 ```
 
-To target & customize the fill:
+The height of the volumeFill is automatically set to equal the height of the progressBar. To customize the fill:
 ```javascript
 audio.volumeFill.backgroundColor = "#000"
 ```
