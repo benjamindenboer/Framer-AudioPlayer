@@ -1,5 +1,5 @@
 # Framer AudioPlayer
-AudioPlayer Class for Framer. Aims to make it a lot easier to start designing with Audio in Framer. Includes customizable controls, play/pause behaviour, optional progressBar, volumeBar, time and more.
+AudioPlayer Class for Framer. Aims to make it easier to start working with Audio in Framer. Includes customizable controls, play/pause behaviour, optional progressBar, volumeBar, time and more.
 
 ## Examples
 ###### 1. [Basic AudioPlayer Example](http://share.framerjs.com/mz633vr9l57p/)
