@@ -73,7 +73,7 @@ To include the AudioPlayer Class as a module, get the audio.coffee file from the
 audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
 ```
 
-![AudioPlayerModule Preview](http://cl.ly/aEth/Bitmap.png)
+![AudioPlayerModule Preview](http://cl.ly/aFyc/aP.png)
 
 ---
 #### To-do (ideas):
