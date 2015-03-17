@@ -6,7 +6,6 @@ AudioPlayer Class for Framer.
 ###### 2. [AudioPlayer Class](http://share.framerjs.com/bplu2b1se9bv/) 
 ###### 3. [AudioPlayer Module (iOS Example)](http://share.framerjs.com/z7b91klf85q2/) 
 
-![AudioPlayerModule Preview](http://cl.ly/aFjj/Ap.png)
 ---
 
 ### AudioPlayer Class
@@ -64,6 +63,8 @@ audio.showTimeLeft = true
 audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ```
 ---
+
+![AudioPlayerModule Preview](http://cl.ly/aFjj/Ap.png)
 
 ## Module
 To include the AudioPlayer Class as a module, get the audio.coffee file from the AudioPlayerModule example and place it within the /modules folder of your prototype. Then, include it within your project:
