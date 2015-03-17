@@ -44,9 +44,16 @@ audio.volumeFill.backgroundColor = "#000"
 ---
 
 #### Time
-Set `showTime` to true. 
+Set `showTime` to true. The layer properties (`audio.time`) and formatting (`audio.timeStyle`) can be changed as well.
 ```javascript
 audio.showTime = true
+audio.time.x = audio.progressBar.x - 60
+audio.time.centerY(280)
+
+```
+
+```javascript
+audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ```
 
 #### TimeLeft
