@@ -6,7 +6,7 @@ AudioPlayer Class for Framer.
 ###### 2. [AudioPlayer Class](http://share.framerjs.com/bplu2b1se9bv/) 
 ###### 3. [AudioPlayer Module (iOS Example)](http://share.framerjs.com/z7b91klf85q2/) 
 
-![AudioPlayerModule Preview](http://cl.ly/aF17/ap2.png)
+![AudioPlayerModule Preview](https://www.imageupload.co.uk/images/2015/03/17/ap3.png)
 
 ---
 
