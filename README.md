@@ -43,6 +43,8 @@ The height of the volumeFill is automatically set to equal the height of the pro
 audio.volumeFill.backgroundColor = "#000"
 ```
 
+(Note that iOS doesn't allow you to change the volume via JavaScript, so when previewing on iOS Devices, the volumeBar may be unresponsive)
+
 ---
 
 ### Time
