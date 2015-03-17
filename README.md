@@ -14,6 +14,46 @@ AudioPlayer Class for Framer.
 audio = new AudioPlayer audio: "audio.mp3"
 audio.player.play()
 ```
+
+##### Progress Bar
+Set `showProgress` to true. 
+```javascript
+audio.showProgress = true
+audio.progressBar.properties = 
+	width: 556, height:44
+	backgroundColor: "e7e7e7"
+```
+
+To target & customize the fill:
+```javascript
+audio.progressFill.backgroundColor = "transparent"
+```
+
+
+##### Volume Bar
+Set `showVolume` to true. 
+```javascript
+audio.showVolume = true
+```
+
+To target & customize the fill:
+```javascript
+audio.volumeFill.backgroundColor = "#000"
+```
+
+##### Time
+Set `showTime` to true. 
+```javascript
+audio.showTime = true
+```
+
+##### TimeLeft
+Set `showTimeLeft` to true. 
+```javascript
+audio.showTimeLeft = true
+```
+
+
 #### Progress
 
 The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is `baseProgressOn(layer)`, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
