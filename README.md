@@ -9,6 +9,7 @@ AudioPlayer Class for Framer.
 ---
 
 ## AudioPlayer Class
+![AudioPlayerModule Preview](http://cl.ly/aFRF/ap2.png)
 
 ```javascript
 audio = new AudioPlayer audio: "audio.mp3"
@@ -63,8 +64,6 @@ audio.showTimeLeft = true
 audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ```
 ---
-
-![AudioPlayerModule Preview](http://cl.ly/aFjj/Ap.png)
 
 ## Module
 To include the AudioPlayer Class as a module, get the audio.coffee file from the AudioPlayerModule example and place it within the /modules folder of your prototype. Then, include it within your project:
