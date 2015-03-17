@@ -72,80 +72,19 @@ To include the AudioPlayer Class as a module, get the audio.coffee file from the
 audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
 ```
 
+![AudioPlayerModule Preview](http://cl.ly/aEtF/preview.png)
+
+
 ---
-
-#### Progress
-
-The AudioPlayer class includes a few handy functions, that aim to make it easier to quickly set-up and design with audio. The first is `baseProgressOn(layer)`, which automatically calculates the current width of a layer, based on another layer. This allows you to easily visualize progress.
-
-```javascript
-progress = new Layer 
-  width: 0, height:6,
-  backgroundColor: "#333", borderRadius: 40, 
-  superLayer: progressBar
-
-audio.player.ontimeupdate = ->
-	progress.width = audio.player.baseProgressOn(progressBar)
-```
-
-#### Time
-It also includes two functions that automatically format time for you in a **minutes:seconds** format. Both a `getTime()` and `getTimeLeft()` function.
-
-```javascript
-audio.player.ontimeupdate = ->
-	showTime.html = audio.player.getTime()
-	timeLeft.html = "-" + audio.player.getTimeLeft()
-```
-
-![AudioPlayer TimeLeft Preview](http://cl.ly/aB3v/getTimeLeft.png)
+#### To-do (ideas):
+- Implement a volumeKnob and progressKnob by default.
+- Implement forward and rewind behaviors.
 
 ---
 
-#### Progress Bar Interaction / Scrubbing
+The AudioPlayer class aims to make it a lot easier to start designing with Audio in Framer. The HTML5 DOM includes many methods and properties around Audio and Video that can be used. Still, when designing AudioPlayers there are many things you may run into that initially take a bit of time to set-up:
 
-Similar to how scrubbers work on iOS, we want to allow people to drag beyond the progressBar, as long as you started by clicking within the progressBar. We also check if the audio was playing on click, so we can pause it during scrub-movement for smoother scrubbing.
-
-```javascript
-progressBar.on Events.TouchStart, (event) ->
-	mousedown = true
-	if audio.isPlaying() then wasPlaying = true
-```
-
-While dragging/scrubbing, update the currentTime of the track, which will automatically be correctly visualized since our `baseProgressOn(layer)` function is based on the currentTime.
-
-```javascript
-Events.wrap(document).addEventListener Events.TouchMove, (event) ->
-	offsetX = (event.x - progressBar.x)
-	
-	if mousedown is true and offsetX >= 0 and offsetX <= 200
-		audio.player.pause()
-		audio.player.currentTime = audio.player.duration * (offsetX / 200)
-```
-
-Finally, we listen to `TouchEnd` events and update the time + allow for clicks to set the time. If it was already playing, and you click somewhere within the progressBar, we want the track to keep on playing.
-
-```javascript
-Events.wrap(document).addEventListener Events.TouchEnd, (event) -> 
-	if mousedown is true
-		audio.player.currentTime = audio.player.duration * (offsetX / 200)
-	
-		if wasPlaying
-			audio.player.play()
-			controls.image = "images/pause.png"
-
-	mousedown = false
-```
----
-#### To-do:
-- Look into implementing a default play/pause/stop buttons within the Class.
-- Rapid scrubs can off-set the time currently.
-- Implement fastForward and rewind behavior.
-
----
-
-The HTML5 DOM includes many methods and properties around Audio and Video that can be used. Still, when designing AudioPlayers there are many things you may run into that initially take a bit of time to set-up:
-
-- Creating a progressBar, dynamically calculating its width
+- Creating a progressBar
 - Creating a volumeBar
 - Defining the scrubbing behaviours
 - Properly formatting the time and timeLeft
