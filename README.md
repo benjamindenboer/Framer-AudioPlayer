@@ -54,7 +54,17 @@ Set `showTimeLeft` to true.
 ```javascript
 audio.showTimeLeft = true
 ```
+---
 
+## Module
+To include the AudioPlayer Class as a module, get the audio.coffee file from the AudioPlayerModule example and place it within the /modules folder of your prototype. Then, include it within your project:
+
+```javascript
+{AudioPlayer} = require "audio"
+audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
+```
+
+---
 
 #### Progress
 
