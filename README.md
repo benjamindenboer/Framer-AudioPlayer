@@ -1,15 +1,7 @@
 # Framer AudioPlayer
-Explorations of working with Audio within Framer. The HTML5 DOM includes many methods and properties around Audio and Video that can be used. Still, when designing AudioPlayers there are many things you may run into that initially take a bit of time to set-up:
+AudioPlayer Class for Framer. 
 
-- Creating a progress bar, dynamically calculating its width on timeUpdate
-- Defining a proper scrubbing interaction for a progressBar
-- Properly formatting the currentTime
-- Properly formatting and getting the timeLeft
-- Implementing basic play/pause/stop behaviors
-
----
-
-#### Examples
+## Examples
 ###### 1. [Basic AudioPlayer Example](http://share.framerjs.com/mz633vr9l57p/)
 ###### 2. [AudioPlayer Class](http://share.framerjs.com/bplu2b1se9bv/) 
 ###### 3. [AudioPlayer Module (iOS Example)](http://share.framerjs.com/z7b91klf85q2/) 
@@ -91,6 +83,13 @@ Events.wrap(document).addEventListener Events.TouchEnd, (event) ->
 
 ---
 
-Reference: http://www.w3schools.com/tags/ref_av_dom.asp
+The HTML5 DOM includes many methods and properties around Audio and Video that can be used. Still, when designing AudioPlayers there are many things you may run into that initially take a bit of time to set-up:
 
+- Creating a progressBar, dynamically calculating its width
+- Creating a volumeBar
+- Defining the scrubbing behaviours
+- Properly formatting the time and timeLeft
+- Implementing basic play/pause behaviors
+
+Reference: http://www.w3schools.com/tags/ref_av_dom.asp
 Feel free to reach out on [Twitter](https://twitter.com/benjaminnathan/) for any questions.
