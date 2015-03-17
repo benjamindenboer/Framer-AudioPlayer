@@ -15,7 +15,7 @@ audio = new AudioPlayer audio: "audio.mp3"
 audio.player.play()
 ```
 
-##### Progress Bar
+#### Progress Bar
 Set `showProgress` to true. 
 ```javascript
 audio.showProgress = true
@@ -30,7 +30,7 @@ audio.progressFill.backgroundColor = "transparent"
 ```
 ---
 
-##### Volume Bar
+#### Volume Bar
 Set `showVolume` to true. 
 ```javascript
 audio.showVolume = true
@@ -43,13 +43,13 @@ audio.volumeFill.backgroundColor = "#000"
 
 ---
 
-##### Time
+#### Time
 Set `showTime` to true. 
 ```javascript
 audio.showTime = true
 ```
 
-##### TimeLeft
+#### TimeLeft
 Set `showTimeLeft` to true. 
 ```javascript
 audio.showTimeLeft = true
