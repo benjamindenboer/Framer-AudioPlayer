@@ -2,7 +2,7 @@
 document.body.style.cursor = "auto"
 
 # AudioPlayer Class
-class AudioPlayer extends Layer
+class exports.AudioPlayer extends Layer
 	
 	constructor: (options={}) ->
 		options.backgroundColor ?= "transparent"			
@@ -254,26 +254,3 @@ scaledScreenFrame = (layer) ->
 	frame.x += (layer.width -  frame.width)  * layer.originX
 	frame.y += (layer.height - frame.height) * layer.originX
 	return frame
-				
-# New AudioPlayer
-audio = new AudioPlayer audio: "audio.mp3", width: 300, height:200, image: "images/bg.png", borderRadius: 4
-audio.center()
-audio.y -= 50
-
-audio.showProgress = true
-audio.progressBar.borderRadius = 6
-audio.progressBar.center()
-audio.progressBar.y += 100
-
-# Text
-audio.timeStyle = { "font-size": "13px", "color": "#888" }
-
-# Time
-audio.showTime = true
-audio.time.x = audio.x
-audio.time.centerY(136)
-
-# TimeLeft
-audio.showTimeLeft = true
-audio.timeLeft.x = audio.maxX - 30
-audio.timeLeft.centerY(136)

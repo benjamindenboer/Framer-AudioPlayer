@@ -99,6 +99,8 @@ class AudioPlayer extends Layer
 		get: -> @_showTimeLeft
 		set: (showTimeLeft) -> @getTimeLeft(showTimeLeft, false)
 		
+	audio = @
+
 	# Checks a property, returns "true" or "false"
 	_checkBoolean: (property) ->
 		if _.isString(property)
@@ -119,7 +121,7 @@ class AudioPlayer extends Layer
 			@time.style = @timeStyle
 			@time.html = "0:00"
 
-	getTimeLeft: (showTimeLeft) =>
+	getTimeLeft: (showTimeLeft) ->
 		@_checkBoolean(showTimeLeft)
 		@_showTimeLeft = showTimeLeft
 		
@@ -129,8 +131,8 @@ class AudioPlayer extends Layer
 			
 			# Set timeLeft
 			@timeLeft.html = "-0:00"			
-			@player.on "loadedmetadata", => 
-				@timeLeft.html = "-" + @player.formatTimeLeft()
+			@player.on "loadedmetadata", -> 
+				audio.timeLeft.html = "-" + @formatTimeLeft()
 		
 	setProgress: (showProgress) ->
 		@_checkBoolean(showProgress)
@@ -146,7 +148,7 @@ class AudioPlayer extends Layer
 			
 			# Progress layer + Defaults
 			@progressFill = new Layer 
-				width: 0, height: @progressBar.height, backgroundColor: "#222"
+				width: 0, height: @progressBar.height, backgroundColor: "#333"
 				superLayer: @progressBar
 
 			@progressBar.on "change:height", -> 
@@ -160,49 +162,53 @@ class AudioPlayer extends Layer
 			offsetX = null
 			
 			# Store variables
-			progressFill = @progressFill
+			progressBar = @progressBar
 			progressWidth = @progressBar.width
+			progressFill = @progressFill
+			player = @player
+			controls = @controls
+			audio = @
 			
-			@progressBar.on Events.TouchStart, (event) =>
+			@progressBar.on Events.TouchStart, (event) ->
 				mousedown = true
-				if not @player.paused then wasPlaying = true
+				if not player.paused then wasPlaying = true
 						
 			# To allow scrubbing outside of the progressBar
-			Framer.Device.screen.on Events.TouchMove, (event) =>
-				newFrame = scaledScreenFrame(Framer.Device.screen)
+			Framer.Device.screen.on Events.TouchMove, (event) ->
+				newFrame = scaledScreenFrame(@)
 				eventX = Utils.round(Events.touchEvent(event).clientX - newFrame.x, 1)
-				progressWidth = @progressBar.width * @progressBar.screenScaleX()
-				progressX = @progressBar.x * @progressBar.screenScaleX()
+				progressWidth = progressBar.width * progressBar.screenScaleX()
+				progressX = progressBar.x * progressBar.screenScaleX()
 				offsetX = (eventX - progressX)
 				
 				offsetX = Utils.modulate(offsetX, [0, progressWidth], [0, progressWidth], true)
 			
 				if mousedown is true 
-					@player.pause()
-					@player.currentTime = @player.duration * (offsetX / progressWidth)
+					player.pause()
+					player.currentTime = player.duration * (offsetX / progressWidth)
 					
-			Framer.Device.screen.on Events.TouchEnd, (event) => 
+			Framer.Device.screen.on Events.TouchEnd, (event) -> 
 				if mousedown is true
-					@player.currentTime = @player.duration * (offsetX / progressWidth)
+					player.currentTime = player.duration * (offsetX / progressWidth)
 					
-					currentTime = Math.round(@player.currentTime)
-					duration = Math.round(@player.duration)
+					currentTime = Math.round(player.currentTime)
+					duration = Math.round(player.duration)
 						
 					if wasPlaying and currentTime isnt duration
-						@player.play()
-						@controls.showPause()
+						player.play()
+						controls.showPause()
 						
 					if currentTime is duration
-						@player.pause()
-						@controls.showPlay()
+						player.pause()
+						controls.showPlay()
 			
 				mousedown = false
 					
 			# Update Progress
-			@player.ontimeupdate = =>
-				@progressFill.width = @player.baseProgressOn(@progressBar)
-				@time.html = @player.formatTime()
-				@timeLeft.html = "-" + @player.formatTimeLeft()
+			@player.ontimeupdate = ->
+				progressFill.width = @baseProgressOn(progressBar)
+				audio.time.html = @formatTime()
+				audio.timeLeft.html = "-" + @formatTimeLeft()
 	
 	setVolume: (showVolume) ->
 		@_checkBoolean(showVolume)
@@ -216,35 +222,41 @@ class AudioPlayer extends Layer
 		@volumeFill = new Layer width: @volumeBar.width*0.75, height:@volumeBar.height, backgroundColor: "#333", superLayer: @volumeBar
 		@volumeFill.force2d = true 
 		
-		@volumeBar.on "change:height", => @volumeFill.height = @volumeBar.height
-		@volumeBar.on "change:width", => @volumeFill.width = @volumeBar.width*0.75
+		@volumeBar.on "change:height", -> volumeFill.height = @height
+		@volumeBar.on "change:width", -> volumeFill.width = @width*0.75
 				
 		mousedown = false
 		getVolume = null
 		
 		@volumeBar.on Events.TouchStart, (event) ->
 			mousedown = true
-					
+			
+		# Set Variables
+		volumeBar = @volumeBar
+		volumeWidth = @volumeBar.width
+		volumeFill = @volumeFill
+		player = @player
+		
 		# Events
-		Framer.Device.screen.on Events.TouchMove, (event) =>
+		Framer.Device.screen.on Events.TouchMove, (event) ->
 			newFrame = scaledScreenFrame(Framer.Device.screen)
 			eventX = Utils.round(Events.touchEvent(event).clientX - newFrame.x, 1)
-			volumeWidth = @volumeBar.width * @volumeBar.screenScaleX()
-			volumeX = @volumeBar.x * @volumeBar.screenScaleX()
+			volumeWidth = volumeBar.width * volumeBar.screenScaleX()
+			volumeX = volumeBar.x * volumeBar.screenScaleX()
 				
 			getVolume = (eventX - volumeX)
 			getVolume = Utils.modulate(getVolume, [0, volumeWidth], [0,1], true)
 							
 			if mousedown is true
-				@player.volume = getVolume
+				player.volume = getVolume
 			
-		Framer.Device.screen.on Events.TouchEnd, (event) =>
+		Framer.Device.screen.on Events.TouchEnd, (event) ->
 			if mousedown is true
-				@player.volume = getVolume
+				player.volume = getVolume
 			mousedown = false
 				
-		@player.onvolumechange = =>
-			@volumeFill.width = @player.baseVolumeOn(@volumeBar)
+		player.onvolumechange = ->
+			volumeFill.width = @baseVolumeOn(volumeBar)
 
 # Helper Functions
 scaledScreenFrame = (layer) ->
@@ -253,6 +265,7 @@ scaledScreenFrame = (layer) ->
 	frame.height *= layer.screenScaleY()
 	frame.x += (layer.width -  frame.width)  * layer.originX
 	frame.y += (layer.height - frame.height) * layer.originX
+	
 	return frame
 				
 # New AudioPlayer
@@ -271,9 +284,9 @@ audio.timeStyle = { "font-size": "13px", "color": "#888" }
 # Time
 audio.showTime = true
 audio.time.x = audio.x
-audio.time.centerY(136)
+audio.time.centerY(135)
 
 # TimeLeft
 audio.showTimeLeft = true
 audio.timeLeft.x = audio.maxX - 30
-audio.timeLeft.centerY(136)
+audio.timeLeft.centerY(135)
