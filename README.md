@@ -8,7 +8,7 @@ AudioPlayer Class for Framer.
 
 ---
 
-### AudioPlayer Class
+## AudioPlayer Class
 
 ```javascript
 audio = new AudioPlayer audio: "audio.mp3"
