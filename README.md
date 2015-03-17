@@ -52,14 +52,15 @@ audio.time.centerY(280)
 
 ```
 
-```javascript
-audio.timeStyle = { "font-size": "14px", "color": "#888" }
-```
-
 #### TimeLeft
 Set `showTimeLeft` to true. 
 ```javascript
 audio.showTimeLeft = true
+```
+
+`timeStyle` targets both of the times defined by `showTime` and `showTimeLeft`.
+```javascript
+audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ```
 ---
 
