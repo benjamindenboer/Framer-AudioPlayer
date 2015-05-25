@@ -25,22 +25,12 @@ audio.progressBar.properties =
 	width: 556, height:44
 	backgroundColor: "e7e7e7"
 ```
-
-The height of the progressFill is automatically set to equal the height of the progressBar. To customize the fill:
-```javascript
-audio.progressFill.backgroundColor = "transparent"
-```
 ---
 
 ### Volume Bar
 Set `showVolume` to true. 
 ```javascript
 audio.showVolume = true
-```
-
-The height of the volumeFill is automatically set to equal the height of the progressBar. To customize the fill:
-```javascript
-audio.volumeFill.backgroundColor = "#000"
 ```
 
 (Note that iOS doesn't allow you to change the volume via JavaScript, so when previewing on iOS Devices, the volumeBar may be unresponsive)
@@ -79,19 +69,5 @@ audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
 ![AudioPlayer Previews](http://cl.ly/aFrl/playerPreviews.png)
 
 ---
-#### To-do (ideas):
-- Implement a volumeKnob and progressKnob by default.
-- Implement forward and rewind behaviors.
 
----
-
-The HTML5 DOM includes many methods and properties around Audio and Video that can be used. Still, when designing AudioPlayers there are many things you may run into that initially take a bit of time to set-up:
-
-- Creating a progressBar
-- Creating a volumeBar
-- Defining the scrubbing behaviours
-- Properly formatting the time and timeLeft
-- Implementing basic play/pause behaviors
-
-Reference: http://www.w3schools.com/tags/ref_av_dom.asp
-Feel free to reach out on [Twitter](https://twitter.com/benjaminnathan/) for any questions.
+Find me on [Twitter](https://twitter.com/benjaminnathan/) for any questions.
