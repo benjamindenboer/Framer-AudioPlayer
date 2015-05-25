@@ -59,11 +59,16 @@ audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ---
 
 ## Module
-To include the AudioPlayer Class as a module, get the audio.coffee file from the AudioPlayerModule example and place it within the /modules folder of your prototype. Then, include it within your project:
+To include the AudioPlayer Class as a module, get the audio.coffee file from the AudioPlayerModule example and place it within the /modules folder of your prototype. 
 
 ```javascript
+# Include the module
 {AudioPlayer} = require "audio"
-audio = new AudioPlayer audio: "audio.mp3", width: 80, height: 80
+
+# Create a new AudioPlayer
+audio = new AudioPlayer 
+	audio: "audio.mp3"
+	width: 80, height: 80
 ```
 
 ![AudioPlayer Previews](http://cl.ly/aFrl/playerPreviews.png)
