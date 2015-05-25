@@ -21,9 +21,6 @@ audio.player.play()
 Set `showProgress` to true. 
 ```javascript
 audio.showProgress = true
-audio.progressBar.properties = 
-	width: 556, height:44
-	backgroundColor: "e7e7e7"
 ```
 ---
 
@@ -41,9 +38,6 @@ audio.showVolume = true
 Set `showTime` to true. The layer properties (`audio.time`) and formatting (`audio.timeStyle`) can be changed as well.
 ```javascript
 audio.showTime = true
-audio.time.x = audio.progressBar.x - 60
-audio.time.centerY(280)
-
 ```
 
 ### TimeLeft
