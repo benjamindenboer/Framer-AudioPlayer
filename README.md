@@ -36,18 +36,40 @@ audio = new AudioPlayer
 audio.center()
 ```
 
+## Progress and Volume
 
 #### Progress Bar
-Set `showProgress` to true. 
+Set `showProgress` to true to visualize the progress of the current song.  
 ```javascript
 audio.showProgress = true
+```
+
+The entire progress bar, including the knob, can be customized.
+```javascript
+audio.progressBar.props = 
+	width: 556, height: 14
+	backgroundColor: "e7e7e7"
+	borderRadius: 0
+
+audio.progressBar.knob.props = 
+	backgroundColor: "#FF2D55", 
+	width: 3, height: 30
+	borderRadius: 4
 ```
 ---
 
 #### Volume Bar
-Set `showVolume` to true. 
+Set `showVolume` to true to create a volume slider.  
 ```javascript
 audio.showVolume = true
+```
+
+Just like the `progressBar`, the appearance of both the bar and the knob can be customized.
+
+```
+audio.volumeBar.props = 
+	width: 540, height: 6
+	value: 0.75, knobSize: 35
 ```
 
 (Note that iOS doesn't allow you to change the volume via JavaScript, so when previewing on iOS Devices, the volumeBar may be unresponsive)
