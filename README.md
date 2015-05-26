@@ -1,21 +1,40 @@
-# Framer AudioPlayer
-AudioPlayer Class for Framer. Aims to make it easier to start working with Audio in Framer. Includes customizable controls, play/pause behaviour, optional progressBar, volumeBar, time and more.
+# Framer AudioPlayer Module
+The **AudioPlayer Module** for Framer makes it easier for you to prototype with music. It allows you to easily visualize the **time**, **duration**, **progress**, **volume** and more. It combines the power of the [HTML Audio Methods](http://www.w3schools.com/tags/ref_av_dom.asp) with the flexibility of Components. 
+
+The AudioPlayer takes care of all of the common interactions for you, while remaining completely customizable. 
+
+![AudioPlayerModule Preview](http://cl.ly/b4ly/audio-github.png)
+
 
 ## Examples
-###### 1. [Basic AudioPlayer Example](http://share.framerjs.com/mz633vr9l57p/)
-###### 2. [AudioPlayer Class](http://share.framerjs.com/bplu2b1se9bv/) 
-###### 3. [AudioPlayer Module (iOS Example)](http://share.framerjs.com/z7b91klf85q2/) 
+#### 1 - [Audio Player Example](http://share.framerjs.com/mz633vr9l57p/)
+#### 2 - [iOS Music App](http://share.framerjs.com/bplu2b1se9bv/) 
+#### 3 - [Material Music App](http://share.framerjs.com/z7b91klf85q2/) 
 
-![AudioPlayerModule Preview](https://www.imageupload.co.uk/images/2015/03/17/ap4.png)
 
 ---
 
-## AudioPlayer Class
+## Get Started
+
+The AudioPlayer creates a new Layer for you that includes an `audio` property. 
 
 ```javascript
 audio = new AudioPlayer audio: "audio.mp3"
 audio.player.play()
 ```
+
+By default, it will look for `play.png` and `pause.png` images within your `/images/` folder. The appearance of the player itself can also be customized. To include a background-image, for instance:
+
+```javascript
+audio = new AudioPlayer 
+	audio: "audio.mp3"
+	width: 300, height: 200
+	image: "images/bg.png"
+	borderRadius: 4
+
+audio.center()
+```
+
 
 ### Progress Bar
 Set `showProgress` to true. 
