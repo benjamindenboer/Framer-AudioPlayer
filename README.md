@@ -84,7 +84,7 @@ audio = new AudioPlayer
 	width: 80, height: 80
 ```
 
-![AudioPlayer Previews](http://cl.ly/aFrl/playerPreviews.png)
+![AudioPlayer Previews](http://cl.ly/b4v7/audio-banner-github.png)
 
 ---
 
