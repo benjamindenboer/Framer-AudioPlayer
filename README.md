@@ -15,6 +15,17 @@ Prototype of a material-design music app with multiple songs, next-previous cont
 
 ---
 
+## Including the Module
+To include the AudioPlayer Class as a module, get the audio.coffee file from within the `/module` folder and place it within the `/modules` folder of your prototype. 
+
+```javascript
+{AudioPlayer} = require "audio"
+
+audio = new AudioPlayer 
+	audio: "audio.mp3"
+	width: 80, height: 80
+```
+
 ## Getting Started
 
 The AudioPlayer creates a new Layer for you that includes an `audio` property. 
@@ -93,18 +104,6 @@ audio.showTimeLeft = true
 `timeStyle` targets both of the times defined by `showTime` and `showTimeLeft`.
 ```javascript
 audio.timeStyle = { "font-size": "14px", "color": "#888" }
-```
----
-
-## Including the Module
-To include the AudioPlayer Class as a module, get the audio.coffee file from within the `/module` folder and place it within the `/modules` folder of your prototype. 
-
-```javascript
-{AudioPlayer} = require "audio"
-
-audio = new AudioPlayer 
-	audio: "audio.mp3"
-	width: 80, height: 80
 ```
 
 ![AudioPlayer Previews](http://cl.ly/b4v7/audio-banner-github.png)
