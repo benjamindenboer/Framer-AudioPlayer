@@ -76,6 +76,8 @@ audio.volumeBar.props =
 
 ---
 
+## Showing Time
+
 #### Time
 Set `showTime` to true. The layer properties (`audio.time`) and formatting (`audio.timeStyle`) can be changed as well.
 ```javascript
