@@ -6,7 +6,7 @@ The **AudioPlayer Module** for Framer makes it easier for you to prototype with 
 A simple audio-player with the current time and time-left visualized.
 
 #### 2. [iOS Music App](http://share.framerjs.com/pdh9twa91amo/)
-iOS Music app prototype with a customized progress scrubber and volume slider.
+Prototype of the iOS music app with a customized progress scrubber and volume slider.
 
 #### 3. [Material Music App](http://share.framerjs.com/v68wxklica9y/)
 Prototype of a material-design music app with multiple songs, next-previous controls and more.
