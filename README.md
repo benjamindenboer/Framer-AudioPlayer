@@ -90,5 +90,5 @@ audio = new AudioPlayer
 
 ---
 
-Get Framer Studio - www.framerjs.com
-Follow me on [Twitter](https://twitter.com/benjaminnathan/)
+- Made with Framer - www.framerjs.com
+- Follow me on [Twitter](https://twitter.com/benjaminnathan/)
