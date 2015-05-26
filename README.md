@@ -5,13 +5,13 @@ The **AudioPlayer Module** for Framer makes it easier for you to prototype with 
 
 
 ## Examples
-#### 1 - [Audio Player Example](http://share.framerjs.com/mz633vr9l57p/)
+#### 1. [Audio Player Example](http://share.framerjs.com/mz633vr9l57p/)
 A simple audio-player with the current time and time-left visualized.
 
-#### 2 - [iOS Music App](http://share.framerjs.com/bplu2b1se9bv/)
+#### 2. [iOS Music App](http://share.framerjs.com/bplu2b1se9bv/)
 iOS Music app prototype with a customized progress scrubber and volume slider.
 
-#### 3 - [Material Music App](http://share.framerjs.com/z7b91klf85q2/)
+#### 3. [Material Music App](http://share.framerjs.com/z7b91klf85q2/)
 Prototype of a material-design music app with multiple songs, next-previous controls and more.
 
 ---
