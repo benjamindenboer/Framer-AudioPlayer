@@ -1,5 +1,5 @@
 # Framer AudioPlayer Module
-The **AudioPlayer Module** for Framer makes it easier for you to prototype with music. It allows you to easily visualize the **time**, **duration**, **progress**, **volume** and more. It combines the power of the [HTML Audio Methods](http://www.w3schools.com/tags/ref_av_dom.asp) with the flexibility of Components. The AudioPlayer takes care of all of the common interactions for you, while remaining completely customizable. 
+The **AudioPlayer Module** for Framer makes it easier for you to prototype with music. It allows you to easily visualize the **time**, **duration**, **progress**, **volume** and more. It combines the power of the [HTML Audio Methods](http://www.w3schools.com/tags/ref_av_dom.asp) with the flexibility of Components. The AudioPlayer takes care of the common audio interactions for you, while remaining completely customizable. 
 
 ## Examples
 #### 1. [Audio Player Example](http://share.framerjs.com/6nbgnpqlfmpi/)
