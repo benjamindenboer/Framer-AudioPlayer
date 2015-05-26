@@ -20,10 +20,6 @@ To include the AudioPlayer Class as a module, get the audio.coffee file from wit
 
 ```javascript
 {AudioPlayer} = require "audio"
-
-audio = new AudioPlayer 
-	audio: "audio.mp3"
-	width: 80, height: 80
 ```
 
 ## Getting Started
