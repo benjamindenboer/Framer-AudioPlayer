@@ -1,0 +1,620 @@
+[
+  {
+    "maskFrame" : null,
+    "id" : "2A05ACBB-0400-4382-A4A9-3FD6D59C8147",
+    "visible" : true,
+    "children" : [
+      {
+        "maskFrame" : null,
+        "id" : "74BB7CAD-4DDA-4DE3-B89B-4ABEFB5642A5",
+        "visible" : true,
+        "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "2430FF35-7210-4926-9119-F3E4DFEFB9C9",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-iconBack-2430FF35-7210-4926-9119-F3E4DFEFB9C9.png",
+              "frame" : {
+                "y" : 1822,
+                "x" : 216,
+                "width" : 45,
+                "height" : 51
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1822,
+              "x" : 216,
+              "width" : 45,
+              "height" : 51
+            },
+            "name" : "iconBack"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "82EBCE0F-D81A-482B-AE73-8827153E2028",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-iconHome-82EBCE0F-D81A-482B-AE73-8827153E2028.png",
+              "frame" : {
+                "y" : 1825,
+                "x" : 516,
+                "width" : 48,
+                "height" : 48
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1825,
+              "x" : 516,
+              "width" : 48,
+              "height" : 48
+            },
+            "name" : "iconHome"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "D809CB84-36B1-4BEB-9A27-6378B52C5326",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-iconRecent-D809CB84-36B1-4BEB-9A27-6378B52C5326.png",
+              "frame" : {
+                "y" : 1825,
+                "x" : 819,
+                "width" : 48,
+                "height" : 48
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1825,
+              "x" : 819,
+              "width" : 48,
+              "height" : 48
+            },
+            "name" : "iconRecent"
+          }
+        ],
+        "image" : {
+          "path" : "images\/Layer-navBar-74BB7CAD-4DDA-4DE3-B89B-4ABEFB5642A5.png",
+          "frame" : {
+            "y" : 1776,
+            "x" : 0,
+            "width" : 1080,
+            "height" : 144
+          }
+        },
+        "imageType" : "png",
+        "layerFrame" : {
+          "y" : 1776,
+          "x" : 0,
+          "width" : 1080,
+          "height" : 144
+        },
+        "name" : "navBar"
+      },
+      {
+        "maskFrame" : null,
+        "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "C4AFF4D4-FDF4-43F4-A8F0-DDA4403BD682",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-progress-C4AFF4D4-FDF4-43F4-A8F0-DDA4403BD682.png",
+              "frame" : {
+                "y" : 1557,
+                "x" : 0,
+                "width" : 1080,
+                "height" : 14
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1557,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 14
+            },
+            "name" : "progress"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "FC19EA92-948F-4226-869D-60F9C0449A8B",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-iconNext-FC19EA92-948F-4226-869D-60F9C0449A8B.png",
+              "frame" : {
+                "y" : 1437,
+                "x" : 858,
+                "width" : 72,
+                "height" : 72
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1437,
+              "x" : 858,
+              "width" : 72,
+              "height" : 72
+            },
+            "name" : "iconNext"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "74F96934-0033-4E68-9C14-A64B4B77B79A",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-iconPrev-74F96934-0033-4E68-9C14-A64B4B77B79A.png",
+              "frame" : {
+                "y" : 1437,
+                "x" : 151,
+                "width" : 72,
+                "height" : 72
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1437,
+              "x" : 151,
+              "width" : 72,
+              "height" : 72
+            },
+            "name" : "iconPrev"
+          },
+          {
+            "maskFrame" : null,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "73E25235-5B16-421F-87F4-7D01EAD18C3C",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-iconPlay-73E25235-5B16-421F-87F4-7D01EAD18C3C.png",
+                  "frame" : {
+                    "y" : 1438,
+                    "x" : 504,
+                    "width" : 72,
+                    "height" : 72
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 1438,
+                  "x" : 504,
+                  "width" : 72,
+                  "height" : 72
+                },
+                "name" : "iconPlay"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "E6E855F7-65EA-49C4-A078-EEAF507E3F4D",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-iconPause-E6E855F7-65EA-49C4-A078-EEAF507E3F4D.png",
+                  "frame" : {
+                    "y" : 1438,
+                    "x" : 504,
+                    "width" : 72,
+                    "height" : 72
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 1438,
+                  "x" : 504,
+                  "width" : 72,
+                  "height" : 72
+                },
+                "name" : "iconPause"
+              }
+            ],
+            "id" : "50D6ECCA-5B02-4D8F-A998-8A96D261AE9C",
+            "visible" : true,
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1438,
+              "x" : 504,
+              "width" : 72,
+              "height" : 72
+            },
+            "name" : "controls"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "B767E0FF-632B-4146-97B2-D19011855185",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "D83C9E24-0BCF-40E9-BAB2-99839DCA1954",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-iconShuffle-D83C9E24-0BCF-40E9-BAB2-99839DCA1954.png",
+                  "frame" : {
+                    "y" : 1052,
+                    "x" : 924,
+                    "width" : 48,
+                    "height" : 48
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 1052,
+                  "x" : 924,
+                  "width" : 48,
+                  "height" : 48
+                },
+                "name" : "iconShuffle"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-actionButton-B767E0FF-632B-4146-97B2-D19011855185.png",
+              "frame" : {
+                "y" : 986,
+                "x" : 852,
+                "width" : 192,
+                "height" : 192
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 986,
+              "x" : 852,
+              "width" : 192,
+              "height" : 192
+            },
+            "name" : "actionButton"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "5101DB6D-19FF-46C9-9608-7C30B5F37403",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-controls-5101DB6D-19FF-46C9-9608-7C30B5F37403.png",
+              "frame" : {
+                "y" : 1389,
+                "x" : 0,
+                "width" : 1080,
+                "height" : 168
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1389,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 168
+            },
+            "name" : "controls"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "B5245A14-6774-4F23-8D5E-012710D324DA",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "3F2CC790-CF99-4776-AB5F-7C7A176E5269",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-name-3F2CC790-CF99-4776-AB5F-7C7A176E5269.png",
+                  "frame" : {
+                    "y" : 1157,
+                    "x" : 43,
+                    "width" : 357,
+                    "height" : 91
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 1157,
+                  "x" : 43,
+                  "width" : 357,
+                  "height" : 91
+                },
+                "name" : "name"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-title-B5245A14-6774-4F23-8D5E-012710D324DA.png",
+              "frame" : {
+                "y" : 1077,
+                "x" : 0,
+                "width" : 1080,
+                "height" : 312
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1077,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 312
+            },
+            "name" : "title"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "C0127ED6-AD17-4C8F-84AA-49B5468FE8D5",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "5BED4642-6626-418D-B677-E4A3794E9931",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-nextTitles-5BED4642-6626-418D-B677-E4A3794E9931.png",
+                  "frame" : {
+                    "y" : 1776,
+                    "x" : 57,
+                    "width" : 852,
+                    "height" : 201
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 1776,
+                  "x" : 57,
+                  "width" : 852,
+                  "height" : 201
+                },
+                "name" : "nextTitles"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-upNext-C0127ED6-AD17-4C8F-84AA-49B5468FE8D5.png",
+              "frame" : {
+                "y" : 1557,
+                "x" : 0,
+                "width" : 1080,
+                "height" : 514
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 1557,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 514
+            },
+            "name" : "upNext"
+          }
+        ],
+        "id" : "4847F25C-D432-451D-8359-49A0E15538A0",
+        "visible" : true,
+        "imageType" : "png",
+        "layerFrame" : {
+          "y" : 986,
+          "x" : 0,
+          "width" : 1080,
+          "height" : 1085
+        },
+        "name" : "content"
+      },
+      {
+        "maskFrame" : null,
+        "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "623F0E22-E430-42CA-BAF4-486EEF1B2E79",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "D1A61D5F-3DED-4254-89B7-8A439B33B7BE",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-statusBarIcons-D1A61D5F-3DED-4254-89B7-8A439B33B7BE.png",
+                  "frame" : {
+                    "y" : 15,
+                    "x" : 761,
+                    "width" : 291,
+                    "height" : 39
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 15,
+                  "x" : 761,
+                  "width" : 291,
+                  "height" : 39
+                },
+                "name" : "statusBarIcons"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-statusBar-623F0E22-E430-42CA-BAF4-486EEF1B2E79.png",
+              "frame" : {
+                "y" : 0,
+                "x" : 0,
+                "width" : 1080,
+                "height" : 72
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 0,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 72
+            },
+            "name" : "statusBar"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "D954D25E-8AB5-4F74-BD53-2A1B09AEE5D7",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "806EC468-34B9-42E4-ADBD-C2063900A4C3",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-iconMore-806EC468-34B9-42E4-ADBD-C2063900A4C3.png",
+                  "frame" : {
+                    "y" : 132,
+                    "x" : 1008,
+                    "width" : 12,
+                    "height" : 48
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 132,
+                  "x" : 1008,
+                  "width" : 12,
+                  "height" : 48
+                },
+                "name" : "iconMore"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "25F12093-9CC4-4028-9C52-583F39C7F839",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-iconClose-25F12093-9CC4-4028-9C52-583F39C7F839.png",
+                  "frame" : {
+                    "y" : 126,
+                    "x" : 54,
+                    "width" : 60,
+                    "height" : 60
+                  }
+                },
+                "imageType" : "png",
+                "layerFrame" : {
+                  "y" : 126,
+                  "x" : 54,
+                  "width" : 60,
+                  "height" : 60
+                },
+                "name" : "iconClose"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-appBar-D954D25E-8AB5-4F74-BD53-2A1B09AEE5D7.png",
+              "frame" : {
+                "y" : 126,
+                "x" : 54,
+                "width" : 966,
+                "height" : 63
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 126,
+              "x" : 54,
+              "width" : 966,
+              "height" : 63
+            },
+            "name" : "appBar"
+          },
+          {
+            "maskFrame" : {
+              "y" : 0,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 1081
+            },
+            "id" : "17DEACBF-A9BF-4956-8A10-DD5566AD9871",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-cover-17DEACBF-A9BF-4956-8A10-DD5566AD9871.png",
+              "frame" : {
+                "y" : 0,
+                "x" : 0,
+                "width" : 1080,
+                "height" : 1081
+              }
+            },
+            "imageType" : "png",
+            "layerFrame" : {
+              "y" : 0,
+              "x" : 0,
+              "width" : 1080,
+              "height" : 1081
+            },
+            "name" : "cover"
+          }
+        ],
+        "id" : "26F499B5-A113-46E2-82D5-2585972C79CE",
+        "visible" : true,
+        "imageType" : "png",
+        "layerFrame" : {
+          "y" : 0,
+          "x" : 0,
+          "width" : 1080,
+          "height" : 1081
+        },
+        "name" : "album"
+      }
+    ],
+    "image" : {
+      "path" : "images\/Layer-screen-2A05ACBB-0400-4382-A4A9-3FD6D59C8147.png",
+      "frame" : {
+        "y" : 0,
+        "x" : 0,
+        "width" : 1080,
+        "height" : 2071
+      }
+    },
+    "imageType" : "png",
+    "layerFrame" : {
+      "y" : 0,
+      "x" : 0,
+      "width" : 1080,
+      "height" : 2071
+    },
+    "name" : "screen"
+  }
+]
