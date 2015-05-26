@@ -73,7 +73,7 @@ audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ```
 ---
 
-## Module
+## Including the Module
 To include the AudioPlayer Class as a module, get the audio.coffee file from within the `/module` folder and place it within the `/modules` folder of your prototype. 
 
 ```javascript
