@@ -40,14 +40,14 @@ audio.center()
 ```
 
 
-### Progress Bar
+#### Progress Bar
 Set `showProgress` to true. 
 ```javascript
 audio.showProgress = true
 ```
 ---
 
-### Volume Bar
+#### Volume Bar
 Set `showVolume` to true. 
 ```javascript
 audio.showVolume = true
@@ -57,13 +57,13 @@ audio.showVolume = true
 
 ---
 
-### Time
+#### Time
 Set `showTime` to true. The layer properties (`audio.time`) and formatting (`audio.timeStyle`) can be changed as well.
 ```javascript
 audio.showTime = true
 ```
 
-### TimeLeft
+#### TimeLeft
 Set `showTimeLeft` to true. 
 ```javascript
 audio.showTimeLeft = true
@@ -76,7 +76,7 @@ audio.timeStyle = { "font-size": "14px", "color": "#888" }
 ---
 
 ## Module
-To include the AudioPlayer Class as a module, get the audio.coffee file from the AudioPlayerModule example and place it within the /modules folder of your prototype. 
+To include the AudioPlayer Class as a module, get the audio.coffee file from within the `/module` folder and place it within the `/modules` folder of your prototype. 
 
 ```javascript
 {AudioPlayer} = require "audio"
