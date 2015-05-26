@@ -1,9 +1,6 @@
 # Framer AudioPlayer Module
 The **AudioPlayer Module** for Framer makes it easier for you to prototype with music. It allows you to easily visualize the **time**, **duration**, **progress**, **volume** and more. It combines the power of the [HTML Audio Methods](http://www.w3schools.com/tags/ref_av_dom.asp) with the flexibility of Components. The AudioPlayer takes care of all of the common interactions for you, while remaining completely customizable. 
 
-![AudioPlayerModule Preview](http://cl.ly/b4ly/audio-github.png)
-
-
 ## Examples
 #### 1. [Audio Player Example](http://share.framerjs.com/6nbgnpqlfmpi/)
 A simple audio-player with the current time and time-left visualized.
@@ -13,6 +10,9 @@ iOS Music app prototype with a customized progress scrubber and volume slider.
 
 #### 3. [Material Music App](http://share.framerjs.com/kjmkhlf36pzo/)
 Prototype of a material-design music app with multiple songs, next-previous controls and more.
+
+![AudioPlayerModule Preview](http://cl.ly/b4ly/audio-github.png)
+
 
 ---
 
