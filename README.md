@@ -88,5 +88,5 @@ audio = new AudioPlayer
 
 ---
 
-- Made with Framer - www.framerjs.com
-- Follow me on [Twitter](https://twitter.com/benjaminnathan/)
+- Made for and with [Framer](www.framerjs.com)
+- Follow me on [Twitter](https://twitter.com/benjaminnathan/) for updates
