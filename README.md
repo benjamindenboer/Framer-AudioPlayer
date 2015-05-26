@@ -15,7 +15,7 @@ Prototype of a material-design music app with multiple songs, next-previous cont
 
 ---
 
-## Get Started
+## Getting Started
 
 The AudioPlayer creates a new Layer for you that includes an `audio` property. 
 
