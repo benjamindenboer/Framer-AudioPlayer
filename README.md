@@ -8,7 +8,7 @@ A simple audio-player with the current time and time-left visualized.
 #### 2. [iOS Music App](http://share.framerjs.com/pdh9twa91amo/)
 Prototype of the iOS music app with a customized progress scrubber and volume slider.
 
-#### 3. [Material Music App](http://share.framerjs.com/download/v68wxklica9y/project.zip)
+#### 3. [Material Music App](http://share.framerjs.com/v68wxklica9y/)
 Prototype of a material-design music app with multiple songs, next-previous controls and more.
 
 ![AudioPlayer Prototypes Preview](http://cl.ly/b4ga/audio-github-b.png)
