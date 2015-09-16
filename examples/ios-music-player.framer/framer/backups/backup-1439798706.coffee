@@ -35,6 +35,7 @@ audio.progressBar.knob.props =
 	width: 3, height: 30
 	borderRadius: 4
 	
+# Visualize time
 audio.showTime = true
 audio.time.x = audio.progressBar.x - 56
 audio.time.centerY(280)

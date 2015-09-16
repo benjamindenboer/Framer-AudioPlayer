@@ -18,10 +18,6 @@ audio = new AudioPlayer
 audio.center()
 audio.y -= 50
 
-audio.showProgress = true
-audio.progressBar.centerX()
-audio.progressBar.centerY(100)
-
 # Text
 audio.timeStyle = { "font-size": "13px", "color": "#888" }
 
@@ -34,3 +30,8 @@ audio.time.centerY(136)
 audio.showTimeLeft = true
 audio.timeLeft.x = audio.maxX - 30
 audio.timeLeft.centerY(136)
+
+# Progress
+audio.showProgress = true
+audio.progressBar.centerX()
+audio.progressBar.centerY(100)

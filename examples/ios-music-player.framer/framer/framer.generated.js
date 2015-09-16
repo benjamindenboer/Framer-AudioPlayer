@@ -119,24 +119,12 @@ window.__imported__["music/layers.json.js"] = [
     "name" : "screen"
   }
 ]
-window.Framer.Defaults.DeviceView = {
-  "deviceScale" : -1,
-  "orientation" : 0,
-  "contentScale" : 1,
-  "deviceType" : "iphone-6-gold-hand"
-};
+if (typeof(DeviceComponent) !== "undefined") {DeviceComponent.Devices["iphone-6-silver"].deviceImageJP2 = false};
+window.Framer.Defaults.DeviceView = {"deviceScale":-1,"deviceType":"iphone-6-gold-hand","contentScale":1,"orientation":0};
 
-window.Framer.Defaults.DeviceComponent = {
-  "deviceScale" : -1,
-  "orientation" : 0,
-  "contentScale" : 1,
-  "deviceType" : "iphone-6-gold-hand"
-};
+window.Framer.Defaults.DeviceComponent = {"deviceScale":-1,"deviceType":"iphone-6-gold-hand","contentScale":1,"orientation":0};
 
-window.FramerStudioInfo = {
-  "deviceImagesUrl" : "\/_server\/resources\/DeviceImages",
-  "documentTitle" : "ios-music-player.framer"
-};
+window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"ios-music-player.framer"};
 
 Framer.Device = new Framer.DeviceView();
 Framer.Device.setupContext();
@@ -404,14 +392,6 @@ Bridge = (function(superClass) {
     return typeof window !== "undefined" && window !== null ? typeof window._bridge === "function" ? window._bridge(command, info) : void 0 : void 0;
   };
 
-  Bridge.prototype.sendError = function(error) {
-    return this.send("runtime.error", {
-      message: error.message,
-      lineNumber: error.lineNumber,
-      errorType: error.constructor.name
-    });
-  };
-
   return Bridge;
 
 })(EventEmitter);
@@ -429,7 +409,7 @@ bridge = require("./Bridge").bridge;
 
 traverseUp = function(layer) {
   var layers;
-  layers = [];
+  layers = [layer];
   while (layer.superLayer) {
     layers.push(layer.superLayer);
     layer = layer.superLayer;
@@ -438,18 +418,20 @@ traverseUp = function(layer) {
 };
 
 getLayerProperties = function(layer) {
-  var properties;
+  var properties, ref;
   properties = {
     id: layer.id,
-    name: layer.name || layer._variableName || ("Layer " + layer.id),
-    superLayer: null,
-    index: layer.index,
-    visible: layer.visible
+    name: layer.name || ((ref = layer.__framerInstanceInfo) != null ? ref.name : void 0) || (layer.constructor.name + " " + layer.id),
+    superLayer: null
   };
+  _.extend(properties, _.pick(layer, ["x", "y", "z", "index", "width", "height", "scale", "opacity", "rotationX", "rotationY", "rotationZ", "blur"]));
   if (properties.visible === false) {
     properties.visibleResult = false;
   } else {
     properties.visibleResult = indexOf.call(_.pluck(traverseUp(layer), "visible"), false) < 0;
+  }
+  if (layer._states) {
+    properties.states = layer._states._states;
   }
   if (layer.superLayer != null) {
     properties.superLayer = layer.superLayer.id;
@@ -515,12 +497,72 @@ exports.ContextListener = ContextListener;
 
 
 },{"./Bridge":2}],4:[function(require,module,exports){
-var ANIMATING_KEYS, highlightColor,
+var ANIMATING_KEYS, CONFIG, canvasScaleX, canvasScaleY, highlightColor, scaledFrame, screenScaledFrame,
   bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-highlightColor = "#00A4FF";
+highlightColor = "#28AFFA";
 
 ANIMATING_KEYS = ["x", "y", "width", "height", "scaleX", "scaleY", "scaleZ", "scale"];
+
+CONFIG = {
+  borderWidth: 2
+};
+
+canvasScaleX = function(layer) {
+  var context, i, len, ref, scale, superLayer;
+  scale = layer.scale * layer.scaleX;
+  ref = layer.superLayers(context = true);
+  for (i = 0, len = ref.length; i < len; i++) {
+    superLayer = ref[i];
+    scale = scale * superLayer.scale * superLayer.scaleX;
+  }
+  return scale;
+};
+
+canvasScaleY = function(layer) {
+  var context, i, len, ref, scale, superLayer;
+  scale = layer.scale * layer.scaleY;
+  ref = layer.superLayers(context = true);
+  for (i = 0, len = ref.length; i < len; i++) {
+    superLayer = ref[i];
+    scale = scale * superLayer.scale * superLayer.scaleY;
+  }
+  return scale;
+};
+
+screenScaledFrame = function(layer) {
+  var context, factorX, factorY, frame, i, layerScaledFrame, layers, len, superLayer;
+  frame = {
+    x: 0,
+    y: 0,
+    width: layer.width * canvasScaleX(layer),
+    height: layer.height * canvasScaleY(layer)
+  };
+  layers = layer.superLayers(context = true);
+  layers.push(layer);
+  layers.reverse();
+  for (i = 0, len = layers.length; i < len; i++) {
+    superLayer = layers[i];
+    factorX = superLayer._superOrParentLayer() ? canvasScaleX(superLayer._superOrParentLayer()) : 1;
+    factorY = superLayer._superOrParentLayer() ? canvasScaleY(superLayer._superOrParentLayer()) : 1;
+    layerScaledFrame = scaledFrame(superLayer);
+    frame.x += layerScaledFrame.x * factorX;
+    frame.y += layerScaledFrame.y * factorY;
+  }
+  return frame;
+};
+
+scaledFrame = function(layer) {
+  var frame, scaleX, scaleY;
+  frame = layer.frame;
+  scaleX = layer.scale * layer.scaleX;
+  scaleY = layer.scale * layer.scaleY;
+  frame.width *= scaleX;
+  frame.height *= scaleY;
+  frame.x += (1 - scaleX) * layer.originX * layer.width;
+  frame.y += (1 - scaleY) * layer.originY * layer.height;
+  return frame;
+};
 
 exports.HighlightComponent = (function() {
   function HighlightComponent() {
@@ -537,14 +579,15 @@ exports.HighlightComponent = (function() {
       };
     })(this));
     this.layer.style = {
-      border: "2px solid " + highlightColor,
+      border: CONFIG.borderWidth + "px solid " + highlightColor,
       zIndex: 10000
     };
-    this.layer.backgroundColor = "transparent";
+    this.layer.backgroundColor = "rgba(40,175,250,0.2)";
     this.info.style = {
-      font: "10px/1em Menlo",
+      font: "bold 11px HelveticaNeue",
       zIndex: 10000,
-      textAlign: "center"
+      textAlign: "center",
+      letterSpacing: ".4px"
     };
     this.info.color = "white";
     this.info.backgroundColor = "transparent";
@@ -552,11 +595,10 @@ exports.HighlightComponent = (function() {
     _.extend(this.info.textElement.style, {
       color: "#FFFFFF",
       display: "inline-block",
-      backgroundColor: "rgba(0,164,255,0.80)",
-      borderRadius: "4px",
-      border: "1px solid #00A4FF",
-      padding: "5px 5px 3px 5px",
-      textShadow: "0px 1px 0px rgba(0,0,0,0.30)"
+      backgroundColor: "rgba(40,175,250,1)",
+      borderRadius: "3px",
+      padding: "5px 8px 5px 8px",
+      textShadow: "0px 1px 0px rgba(0,0,0,0.1)"
     });
     this.info._element.appendChild(this.info.textElement);
     this.layer.visible = false;
@@ -594,23 +636,77 @@ exports.HighlightComponent = (function() {
   };
 
   HighlightComponent.prototype.update = function() {
-    var currentFrame;
+    var canvasFrame, currentFrame, infoOnTopOrBottom, margin, midXPos, midYPos, ref, yPos;
     if (!this.layer) {
       return;
     }
     if (!this.current) {
       return;
     }
-    currentFrame = this.current.screenScaledFrame();
+    currentFrame = screenScaledFrame(this.current);
+    currentFrame.x -= CONFIG.borderWidth;
+    currentFrame.y -= CONFIG.borderWidth;
+    currentFrame.width += 2 * CONFIG.borderWidth;
+    currentFrame.height += 2 * CONFIG.borderWidth;
     this.layer.visible = true;
     this.layer.frame = currentFrame;
+    this.layer.rotation = this.current.rotation;
+    this.info.textElement.textContent = "x: " + (this.current.x.toFixed(1)) + ", y: " + (this.current.y.toFixed(1)) + ", width: " + (this.current.width.toFixed(1)) + ", height: " + (this.current.height.toFixed(1));
+    canvasFrame = (ref = Framer.Canvas) != null ? ref.frame : void 0;
+    if (!canvasFrame) {
+      canvasFrame = {
+        width: Screen.width,
+        height: Screen.height
+      };
+    }
+    margin = 12;
     this.info.visible = true;
     this.info.frame = currentFrame;
-    this.info.width = 500;
-    this.info.midX = this.layer.midX;
-    this.info.pixelAlign();
-    this.info.y += this.info.height + 12;
-    return this.info.textElement.textContent = "x:" + (this.current.x.toFixed(1)) + " y:" + (this.current.y.toFixed(1)) + " width:" + (this.current.width.toFixed(1)) + " height:" + (this.current.height.toFixed(1));
+    this.info.width = 320;
+    this.info.height = 24;
+    this.info.style.textAlign = "center";
+    midYPos = this.layer.midY;
+    midXPos = this.layer.midX;
+    infoOnTopOrBottom = true;
+    if (this.layer.y < canvasFrame.height - (this.info.height + margin) && this.layer.maxY > (this.info.height + margin)) {
+      if (midXPos > canvasFrame.width - ((this.info.width / 2) + margin)) {
+        this.info.style.textAlign = "right";
+        this.info.maxX = Math.min(this.layer.x - margin, canvasFrame.width - margin);
+        infoOnTopOrBottom = false;
+      } else if (midXPos < ((this.info.width / 2) + margin)) {
+        this.info.style.textAlign = "left";
+        this.info.x = Math.max(this.layer.maxX + margin, margin);
+        infoOnTopOrBottom = false;
+      }
+      if (!infoOnTopOrBottom) {
+        this.info.midY = Math.max(Math.min(midYPos, canvasFrame.height - ((this.info.height + margin) - margin)), (this.info.height + margin) - margin);
+      }
+    }
+    if (infoOnTopOrBottom) {
+      yPos = this.layer.maxY + margin;
+      if (yPos > canvasFrame.height - (this.info.height + margin)) {
+        yPos = this.layer.y - (this.info.height + margin);
+        if (yPos > canvasFrame.height - (this.info.height + margin)) {
+          yPos = canvasFrame.height - (this.info.height + margin);
+        }
+      } else if (yPos < margin) {
+        yPos = margin;
+      }
+      if (midXPos > canvasFrame.width - ((this.info.width / 2) + margin)) {
+        midXPos = canvasFrame.width - ((this.info.width / 2) + margin);
+        this.info.style.textAlign = "right";
+      } else if (midXPos < ((this.info.width / 2) + margin)) {
+        midXPos = (this.info.width / 2) + margin;
+        this.info.style.textAlign = "left";
+      }
+      this.info.midX = midXPos;
+      this.info.y = yPos;
+    }
+    this.info.x = Math.max(margin, this.info.x);
+    this.info.maxX = Math.min(canvasFrame.width - margin, this.info.maxX);
+    this.info.y = Math.max(margin, this.info.y);
+    this.info.maxY = Math.min(canvasFrame.height - margin, this.info.maxY);
+    return this.info.pixelAlign();
   };
 
   return HighlightComponent;
@@ -656,61 +752,32 @@ Runtime = (function(superClass) {
         });
       });
     }
-    return bridge.send("runtime.init");
-  };
-
-  Runtime.prototype.compile = function(coffeescript) {
-    var result;
-    if (this.coffeescript === coffeescript) {
-      return;
-    }
-    console.log("» Framer build " + (BUILDS++));
-    this._errorHandlerRemove();
-    this.coffeescript = coffeescript;
-    result = this.uncoffee(this.coffeescript);
-    this.sourceMap = result.sourceMap;
-    this.javascript = result.js;
-    this._errorHandlerSetup();
-    return this.javascript;
+    bridge.send("runtime.init");
+    return this._errorHandlerSetup();
   };
 
   Runtime.prototype.reset = function() {
     return Utils.reset();
   };
 
-  Runtime.prototype.uncoffee = function(code) {
-    var e, error, result;
-    try {
-      result = CoffeeScript.compile(code, {
-        sourceMap: true,
-        filename: "app.coffee"
-      });
-    } catch (_error) {
-      e = _error;
-      if (e instanceof SyntaxError) {
-        error = new SyntaxError(e.message);
-        error.lineNumber = e.location.first_line + 1;
-        bridge.sendError(error);
-        throw new Error("Framer syntax error line " + error.lineNumber + ": " + e.message);
-      } else {
-        throw e;
-      }
-    }
-    return result;
-  };
-
   Runtime.prototype._errorHandler = function(runtimeError) {
     var error, errorFromCompiledCoffeeScript, fileName;
     errorFromCompiledCoffeeScript = runtimeError.filename === window.location.href;
+    error = {
+      message: runtimeError.message,
+      lineNumber: runtimeError.lineno,
+      colNumber: runtimeError.colno,
+      fileName: runtimeError.filename
+    };
     if (errorFromCompiledCoffeeScript) {
-      error = new Error(runtimeError.message);
-      error.lineNumber = this._lookupLine(runtimeError.lineno);
+      error.type = "coffeescript";
+      error.clientCodeId = window.__framerClientCodeId;
     } else {
       fileName = _.last(parseUrl(runtimeError.filename).pathname.split("/"));
-      error = new Error("[" + fileName + "] " + runtimeError.message);
-      error.lineNumber = -1;
+      error.type = "javascript";
+      error.message = "[" + fileName + "] " + runtimeError.message;
     }
-    return bridge.sendError(error);
+    return bridge.send("runtime.error", error);
   };
 
   Runtime.prototype._errorHandlerSetup = function() {
@@ -719,27 +786,6 @@ Runtime = (function(superClass) {
 
   Runtime.prototype._errorHandlerRemove = function() {
     return window.removeEventListener("error", this._errorHandler);
-  };
-
-  Runtime.prototype._lookupLine = function(lineNumber) {
-    var char, charIndex, errorColNumber, errorLine, errorLineIndex, errorLineNumber, i, len, loc, sourceLines;
-    sourceLines = this.javascript.split("\n");
-    errorLineIndex = lineNumber - 1;
-    errorLine = sourceLines[errorLineIndex];
-    if (!errorLine) {
-      return lineNumber;
-    }
-    errorLineNumber = 1;
-    errorColNumber = 0;
-    for (charIndex = i = 0, len = errorLine.length; i < len; charIndex = ++i) {
-      char = errorLine[charIndex];
-      loc = this.sourceMap.sourceLocation([errorLineIndex, charIndex]);
-      if (loc && loc[0] > errorLineNumber) {
-        errorLineNumber = loc[0] + 1;
-        errorColNumber = loc[1];
-      }
-    }
-    return errorLineNumber;
   };
 
   return Runtime;
@@ -751,7 +797,7 @@ exports.runtime = new Runtime();
 
 
 },{"./Bridge":2,"eventemitter3":1}],6:[function(require,module,exports){
-var HighlightComponent, setupContext;
+var HighlightComponent, getLayerById, setupContext;
 
 exports.bridge = (require("./Bridge.coffee")).bridge;
 
@@ -767,8 +813,19 @@ if (window.require == null) {
   };
 }
 
+getLayerById = function(id) {
+  var i, layer, len, ref;
+  ref = Framer.CurrentContext._layerList;
+  for (i = 0, len = ref.length; i < len; i++) {
+    layer = ref[i];
+    if (layer.id === id) {
+      return layer;
+    }
+  }
+};
+
 setupContext = function() {
-  var context, getLayerById, highlighter;
+  var context, highlighter, savedProperties;
   context = new exports.context.ContextListener(Framer.CurrentContext);
   highlighter = new HighlightComponent();
   exports.bridge.on("ui:highlight", function(info) {
@@ -777,20 +834,28 @@ setupContext = function() {
   exports.bridge.on("ui:unhighlight", function() {
     return highlighter.unhighlight();
   });
-  return getLayerById = function(id) {
-    var i, layer, len, ref;
-    ref = Framer.CurrentContext._layerList;
-    for (i = 0, len = ref.length; i < len; i++) {
-      layer = ref[i];
-      if (layer.id === id) {
-        return layer;
-      }
+  savedProperties = null;
+  exports.bridge.on("ui:setstate", function(info) {
+    var layer;
+    layer = getLayerById(info.id);
+    if (info.state === "Current") {
+      return layer.properties = savedProperties;
+    } else {
+      savedProperties = layer.properties;
+      return layer.states.switchInstant(info.state);
     }
-  };
+  });
+  return exports.bridge.on("ui:updateState", function(info) {
+    var layer;
+    layer = getLayerById(info.layerId);
+    layer[info.propertyName] = info.value;
+    return layer.states._states[info.stateName][info.propertyName] = info.value;
+  });
 };
 
 if (typeof window !== "undefined" && window !== null) {
   window.FramerStudio = exports;
+  setupContext();
 }
 
 

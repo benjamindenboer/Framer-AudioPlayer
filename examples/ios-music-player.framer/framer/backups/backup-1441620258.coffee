@@ -35,6 +35,7 @@ audio.progressBar.knob.props =
 	width: 3, height: 30
 	borderRadius: 4
 	
+# Visualize time
 audio.showTime = true
 audio.time.x = audio.progressBar.x - 56
 audio.time.centerY(280)
@@ -48,7 +49,7 @@ audio.showVolume = true
 audio.volumeBar.props = 
 	width: 540, height: 6
 	y: sketch.screen.height - 117
-	knobSize: 35
+	value: 0.75, knobSize: 35
 
 audio.volumeBar.knob.style.boxShadow = "0 0 0 1px rgba(0,0,0,0.075), 0 3px 4px rgba(0,0,0,0.3)"
 audio.volumeBar.centerX()
