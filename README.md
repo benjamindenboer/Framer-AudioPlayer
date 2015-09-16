@@ -11,6 +11,9 @@ Prototype of the iOS music app with a customized progress scrubber and volume sl
 #### 3. [Material Music App](http://share.framerjs.com/v68wxklica9y/)
 Prototype of a material-design music app with multiple songs, next-previous controls and more.
 
+#### 4. [Apple Watch Music App](http://share.framerjs.com/xlq569grki96/)
+Prototype of the music app, with live time, selection effects and volume adjustments.
+
 ![AudioPlayer Prototypes Preview](http://cl.ly/b4ga/audio-github-b.png)
 
 ---
