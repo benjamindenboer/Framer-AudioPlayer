@@ -157,8 +157,9 @@ class exports.AudioPlayer extends Layer
 			@progressBar.on "change:value", =>
 				@player.currentTime = @progressBar.value
 
-				if @time and @timeLeft
+				if @time
 					@time.html = @player.formatTime()
+				if @timeLeft
 					@timeLeft.html = "-" + @player.formatTimeLeft()
 
 			@progressBar.knob.on Events.DragMove, => isMoving = true
@@ -183,8 +184,9 @@ class exports.AudioPlayer extends Layer
 					@progressBar.knob.midX = @progressBar.pointForValue(@player.currentTime)
 					@progressBar.knob.draggable.isMoving = false
 
-				if @time and @timeLeft
+				if @time
 					@time.html = @player.formatTime()
+				if @timeLeft
 					@timeLeft.html = "-" + @player.formatTimeLeft()
 
 	setVolume: (showVolume) ->
