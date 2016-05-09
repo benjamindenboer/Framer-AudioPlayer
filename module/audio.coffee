@@ -154,8 +154,10 @@ class exports.AudioPlayer extends Layer
 			wasPlaying = isMoving = false
 			unless @player.paused then wasPlaying = true
 
-			@progressBar.on "change:value", =>
-				@player.currentTime = @progressBar.value
+			@progressBar.on Events.SliderValueChange, =>
+				currentTime = Math.round(@player.currentTime)
+				progressBarTime = Math.round(@progressBar.value)
+				@player.currentTime = @progressBar.value unless currentTime == progressBarTime
 
 				if @time and @timeLeft
 					@time.html = @player.formatTime()
