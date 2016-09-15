@@ -112,9 +112,6 @@ class exports.AudioPlayer extends Layer
 			@time.style = @timeStyle
 			@time.html = "0:00"
 
-			@player.ontimeupdate = =>
-				@time.html = @player.formatTime()
-
 	getTimeLeft: (showTimeLeft) =>
 		@_checkBoolean(showTimeLeft)
 		@_showTimeLeft = showTimeLeft
@@ -129,9 +126,6 @@ class exports.AudioPlayer extends Layer
 			# Set timeLeft
 			@timeLeft.html = "-0:00"
 			@player.on "loadedmetadata", =>
-				@timeLeft.html = "-" + @player.formatTimeLeft()
-
-			@player.ontimeupdate = =>
 				@timeLeft.html = "-" + @player.formatTimeLeft()
 
 	setProgress: (showProgress) ->
@@ -185,7 +179,7 @@ class exports.AudioPlayer extends Layer
 					@progressBar.knob.midX = @progressBar.pointForValue(@player.currentTime)
 					@progressBar.knob.draggable.isMoving = false
 
-				if @time and @timeLeft
+				if @time or @timeLeft
 					@time.html = @player.formatTime()
 					@timeLeft.html = "-" + @player.formatTimeLeft()
 
